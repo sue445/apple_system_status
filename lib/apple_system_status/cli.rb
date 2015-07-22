@@ -10,5 +10,10 @@ module AppleSystemStatus
       response = AppleSystemStatus::Crawler.new.perform(options[:country])
       puts AppleSystemStatus.format_response(response, options[:format])
     end
+
+    desc "version", "show apple_system_status version"
+    def version
+      puts AppleSystemStatus::VERSION
+    end
   end
 end
