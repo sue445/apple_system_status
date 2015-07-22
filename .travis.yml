@@ -4,6 +4,8 @@ rvm:
   - 2.1
   - 2.2
   - ruby-head
+before_script:
+- export CI=true
 before_install: gem install bundler -v 1.10.5
 script: bundle exec rspec
 branches:

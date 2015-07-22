@@ -17,6 +17,11 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
+if ENV["CI"]
+  require 'coveralls'
+  Coveralls.wear!
+end
+
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 require "apple_system_status"
 require "active_support/all"
