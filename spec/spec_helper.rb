@@ -19,6 +19,10 @@
 
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 require "apple_system_status"
+require "active_support/all"
+require "pry-byebug"
+
+Dir["#{__dir__}/support/**/*.rb"].each { |f| require f }
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
