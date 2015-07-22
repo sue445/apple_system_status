@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-require "apple_system_status"
+require 'apple_system_status/cli'
+
+AppleSystemStatus::CLI.start(ARGV)
