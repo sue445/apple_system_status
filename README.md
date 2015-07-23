@@ -1,14 +1,16 @@
 # AppleSystemStatus
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/apple_system_status`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+[Apple System Status](https://www.apple.com/support/systemstatus/) scraping library
 
 [![Build Status](https://travis-ci.org/sue445/apple_system_status.svg?branch=master)](https://travis-ci.org/sue445/apple_system_status)
 [![Code Climate](https://codeclimate.com/github/sue445/apple_system_status/badges/gpa.svg)](https://codeclimate.com/github/sue445/apple_system_status)
 [![Test Coverage](https://codeclimate.com/github/sue445/apple_system_status/badges/coverage.svg)](https://codeclimate.com/github/sue445/apple_system_status/coverage)
 [![Coverage Status](https://coveralls.io/repos/sue445/apple_system_status/badge.svg?branch=master&service=github)](https://coveralls.io/github/sue445/apple_system_status?branch=master)
 [![Dependency Status](https://gemnasium.com/sue445/apple_system_status.svg)](https://gemnasium.com/sue445/apple_system_status)
+
+## Requirements
+* Ruby 2.0+
+* [Phantomjs](http://phantomjs.org/)
 
 ## Installation
 
@@ -26,9 +28,57 @@ Or install it yourself as:
 
     $ gem install apple_system_status
 
-## Usage
+## Usage (via. ruby)
+```ruby
+crawler = AppleSystemStatus::Crawler.new
 
-TODO: Write usage instructions here
+# English
+pp crawler.perform
+
+{:title=>"System Status as of 12:51 AM JST",
+ :statuses=>
+  [{:title=>"App Store",
+    :description=>"No Issues: App Store",
+    :status=>"allgood"},
+   {:title=>"iCloud Account & Sign In",
+    :description=>"No Issues: iCloud Account & Sign In",
+    :status=>"allgood"},
+   # ...
+]}
+
+# Japanese
+pp crawler.perform("jp")
+
+{:title=>"00:53 JST 時点のシステム状況",
+ :statuses=>
+  [{:title=>"App Store", :description=>"問題なし: App Store", :status=>"allgood"},
+   {:title=>"iCloud ストレージアップグレード",
+    :description=>"問題なし: iCloud ストレージアップグレード",
+    :status=>"allgood"},
+   {:title=>"iTunes Store",
+    :description=>"問題なし: iTunes Store",
+    :status=>"allgood"},
+   # ...
+]}
+```
+
+## Usage (via. shell)
+```sh
+$ apple_system_status help
+Commands:
+  apple_system_status fetch           # Fetch apple system status
+  apple_system_status help [COMMAND]  # Describe available commands or one specific command
+  apple_system_status version         # Show apple_system_status version
+
+$ apple_system_status help fetch
+Usage:
+  apple_system_status fetch
+
+Options:
+  [--country=COUNTRY]  # country code. (ex. jp, ca, fr)
+  [--format=FORMAT]    # output format. (ex. plain, json)
+                       # Default: plain
+```
 
 ## Development
 
@@ -38,7 +88,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/apple_system_status.
+Bug reports and pull requests are welcome on GitHub at https://github.com/sue445/apple_system_status.
 
 
 ## License
