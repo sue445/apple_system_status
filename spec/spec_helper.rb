@@ -18,8 +18,19 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 if ENV["CI"]
+  require 'simplecov'
   require 'coveralls'
-  Coveralls.wear!
+  require 'codeclimate-test-reporter'
+
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    CodeClimate::TestReporter::Formatter,
+    Coveralls::SimpleCov::Formatter
+  ]
+  SimpleCov.start do
+    %w(spec).each do |ignore_path|
+      add_filter(ignore_path)
+    end
+  end
 end
 
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
