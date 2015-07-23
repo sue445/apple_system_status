@@ -6,6 +6,7 @@ rvm:
   - ruby-head
 before_script:
 - export CI=true
+- export CODECLIMATE_REPO_TOKEN=89b665462d69ce4c873ee8165d496c4a97b9afaaf48e375c1bc3200e4b45b1e7
 before_install: gem install bundler -v 1.10.5
 script: bundle exec rspec
 branches:
