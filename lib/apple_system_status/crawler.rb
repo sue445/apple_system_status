@@ -28,11 +28,15 @@ module AppleSystemStatus
       }
 
       @session.all("#dashboard td").each_with_object(response[:statuses]) do |td, statuses|
-        statuses << {
-          title:       td.find("p[role='text']").text,
-          description: td.find("p[role='text']")["aria-label"],
-          status:      td.find("span")["class"],
-        }
+        begin
+          statuses << {
+            title:       td.find("p[role='text']").text,
+            description: td.find("p[role='text']")["aria-label"],
+            status:      td.find("span")["class"],
+          }
+        rescue Capybara::ElementNotFound
+          # NOTE: Capybara::Node::Matchers#has_css? is very slow!
+        end
       end
 
       response
