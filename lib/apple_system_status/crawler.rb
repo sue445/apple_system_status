@@ -24,12 +24,12 @@ module AppleSystemStatus
 
       response = {
         title:    title_parts.join(" ").strip,
-        statuses: [],
+        services: [],
       }
 
-      @session.all("#dashboard td").each_with_object(response[:statuses]) do |td, statuses|
+      @session.all("#dashboard td").each_with_object(response[:services]) do |td, services|
         begin
-          statuses << {
+          services << {
             title:       td.find("p[role='text']").text,
             description: td.find("p[role='text']")["aria-label"],
             status:      td.find("span")["class"],
@@ -39,7 +39,7 @@ module AppleSystemStatus
         end
       end
 
-      response[:statuses].sort_by! { |status| status[:title] }
+      response[:services].sort_by! { |service| service[:title] }
 
       response
     end

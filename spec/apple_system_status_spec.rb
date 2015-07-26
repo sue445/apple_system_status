@@ -5,7 +5,7 @@ describe AppleSystemStatus do
     let(:hash) do
       {
         title: "System Status as of 1:07 AM JST",
-        statuses: [
+        services: [
           { title: "App Store", description: "No Issues: App Store", status: "allgood" },
         ]
       }
@@ -27,7 +27,7 @@ describe AppleSystemStatus do
       let(:format) { "json" }
       let(:expected) do
         <<-JSON.strip_heredoc.strip
-          {"title":"System Status as of 1:07 AM JST","statuses":[{"title":"App Store","description":"No Issues: App Store","status":"allgood"}]}
+          {"title":"System Status as of 1:07 AM JST","services":[{"title":"App Store","description":"No Issues: App Store","status":"allgood"}]}
         JSON
       end
 
