@@ -18,7 +18,7 @@ describe AppleSystemStatus::Crawler do
       let(:country) { "jp" }
 
       it "should return system services" do
-        actual = crawler.perform(country)
+        actual = crawler.perform(country: country)
 
         aggregate_failures do
           expect(actual[:title]).not_to be_blank
@@ -32,7 +32,7 @@ describe AppleSystemStatus::Crawler do
       let(:country) { "tw" }
 
       it "should return system services" do
-        actual = crawler.perform(country)
+        actual = crawler.perform(country: country)
 
         aggregate_failures do
           expect(actual[:title]).not_to be_blank

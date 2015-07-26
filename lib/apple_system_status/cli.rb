@@ -7,7 +7,7 @@ module AppleSystemStatus
     option :country, desc: "country code. (ex. jp, ca, fr)", default: "us"
     option :format, desc: "output format. (ex. plain, json)", default: "plain"
     def fetch
-      response = AppleSystemStatus::Crawler.new.perform(options[:country])
+      response = AppleSystemStatus::Crawler.new.perform(country: options[:country])
       puts AppleSystemStatus.format_response(response, options[:format])
     end
 

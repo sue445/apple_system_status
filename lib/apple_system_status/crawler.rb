@@ -24,7 +24,7 @@ module AppleSystemStatus
     #       { title: , description: , status:  }
     #     ]
     #   }
-    def perform(country = nil)
+    def perform(country: nil)
       @session.visit(apple_url(country))
 
       title_parts = [
