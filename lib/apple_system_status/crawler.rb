@@ -39,6 +39,8 @@ module AppleSystemStatus
         end
       end
 
+      response[:statuses].sort_by! { |status| status[:title] }
+
       response
     end
 
