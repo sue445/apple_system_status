@@ -75,7 +75,9 @@ Usage:
   apple_system_status fetch
 
 Options:
-  [--country=COUNTRY]  # country code. (ex. jp, ca, fr. default. us)
+  [--country=COUNTRY]  # country code. (ex. jp, ca, fr)
+                       # Default: us
+  [--title=TITLE]      # If specified, narrow the service title
   [--format=FORMAT]    # output format. (ex. plain, json)
                        # Default: plain
 ```
