@@ -36,7 +36,7 @@ crawler = AppleSystemStatus::Crawler.new
 pp crawler.perform
 
 {:title=>"System Status as of 12:51 AM JST",
- :statuses=>
+ :services=>
   [{:title=>"App Store",
     :description=>"No Issues: App Store",
     :status=>"allgood"},
@@ -50,7 +50,7 @@ pp crawler.perform
 pp crawler.perform("jp")
 
 {:title=>"00:53 JST 時点のシステム状況",
- :statuses=>
+ :services=>
   [{:title=>"App Store", :description=>"問題なし: App Store", :status=>"allgood"},
    {:title=>"iCloud ストレージアップグレード",
     :description=>"問題なし: iCloud ストレージアップグレード",
@@ -75,7 +75,7 @@ Usage:
   apple_system_status fetch
 
 Options:
-  [--country=COUNTRY]  # country code. (ex. jp, ca, fr)
+  [--country=COUNTRY]  # country code. (ex. jp, ca, fr. default. us)
   [--format=FORMAT]    # output format. (ex. plain, json)
                        # Default: plain
 ```

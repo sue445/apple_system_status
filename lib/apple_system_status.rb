@@ -6,8 +6,8 @@ module AppleSystemStatus
     case format
     when "plain"
       str = "#{hash[:title]}\n"
-      hash[:statuses].each do |status|
-        str << "#{status[:title]},#{status[:status]},#{status[:description]}\n"
+      hash[:services].each do |service|
+        str << "#{service[:title]},#{service[:status]},#{service[:description]}\n"
       end
       str
 

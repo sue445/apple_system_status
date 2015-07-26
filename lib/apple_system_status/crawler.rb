@@ -13,6 +13,16 @@ module AppleSystemStatus
       @session.driver.headers = { "User-Agent" => USER_AGENT }
     end
 
+    # crawl apple system status page
+    # @param country [String] country code. (ex. jp, ca, fr. default. us)
+    # @return [Hash]
+    # @example response format
+    #   {
+    #     title: ,
+    #     services: [
+    #       { title: , description: , status:  }
+    #     ]
+    #   }
     def perform(country = nil)
       @session.visit(apple_url(country))
 
@@ -24,12 +34,12 @@ module AppleSystemStatus
 
       response = {
         title:    title_parts.join(" ").strip,
-        statuses: [],
+        services: [],
       }
 
-      @session.all("#dashboard td").each_with_object(response[:statuses]) do |td, statuses|
+      @session.all("#dashboard td").each_with_object(response[:services]) do |td, services|
         begin
-          statuses << {
+          services << {
             title:       td.find("p[role='text']").text,
             description: td.find("p[role='text']")["aria-label"],
             status:      td.find("span")["class"],
@@ -39,7 +49,7 @@ module AppleSystemStatus
         end
       end
 
-      response[:statuses].sort_by! { |status| status[:title] }
+      response[:services].sort_by! { |service| service[:title] }
 
       response
     end
