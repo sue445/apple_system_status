@@ -16,6 +16,7 @@ module AppleSystemStatus
 
     # crawl apple system status page
     # @param country [String] country code. (ex. jp, ca, fr. default. us)
+    # @param title   [String] If specified, narrow the service title
     # @return [Hash]
     # @example response format
     #   {
@@ -24,7 +25,7 @@ module AppleSystemStatus
     #       { title: , description: , status:  }
     #     ]
     #   }
-    def perform(country: nil)
+    def perform(country: nil, title: nil)
       @session.visit(apple_url(country))
 
       title_parts = [
@@ -48,6 +49,10 @@ module AppleSystemStatus
         rescue Capybara::ElementNotFound
           # NOTE: Capybara::Node::Matchers#has_css? is very slow!
         end
+      end
+
+      unless title.blank?
+        response[:services].select! { |service| service[:title] == title }
       end
 
       response[:services].sort_by! { |service| service[:title] }

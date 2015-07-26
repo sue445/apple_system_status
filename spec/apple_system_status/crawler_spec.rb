@@ -41,6 +41,23 @@ describe AppleSystemStatus::Crawler do
         end
       end
     end
+
+    context "has title" do
+      let(:title) { "App Store" }
+
+      it "should return system services" do
+        actual = crawler.perform(title: title)
+
+        aggregate_failures do
+          expect(actual[:title]).not_to be_blank
+          expect(actual[:services].length).to eq 1
+
+          service = actual[:services].first
+          expect(service).to be_a_service
+          expect(service[:title]).to eq title
+        end
+      end
+    end
   end
 
   describe "#apple_url" do
