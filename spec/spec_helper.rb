@@ -39,6 +39,7 @@ require "apple_system_status/cli"
 
 require "active_support/all"
 require "pry-byebug"
+require "rspec-parameterized"
 
 Dir["#{__dir__}/support/**/*.rb"].each { |f| require f }
 

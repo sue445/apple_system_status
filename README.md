@@ -9,7 +9,7 @@
 [![Dependency Status](https://gemnasium.com/sue445/apple_system_status.svg)](https://gemnasium.com/sue445/apple_system_status)
 
 ## Requirements
-* Ruby 2.0+
+* Ruby 2.1+
 * [Phantomjs](http://phantomjs.org/)
 
 ## Installation

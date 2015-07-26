@@ -42,4 +42,21 @@ describe AppleSystemStatus::Crawler do
       end
     end
   end
+
+  describe "#apple_url" do
+    subject { crawler.apple_url(country) }
+
+    using RSpec::Parameterized::TableSyntax
+
+    where(:country, :url) do
+      nil  | "https://www.apple.com/support/systemstatus/"
+      "jp" | "https://www.apple.com/jp/support/systemstatus/"
+      "us" | "https://www.apple.com/support/systemstatus/"
+      ""   | "https://www.apple.com/support/systemstatus/"
+    end
+
+    with_them do
+      it { should eq url }
+    end
+  end
 end
