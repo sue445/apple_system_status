@@ -54,8 +54,6 @@ module AppleSystemStatus
       response
     end
 
-    private
-
     def apple_url(country)
       if country
         "https://www.apple.com/#{country}/support/systemstatus/"
