@@ -51,6 +51,8 @@ describe AppleSystemStatus::Crawler do
     where(:country, :url) do
       nil  | "https://www.apple.com/support/systemstatus/"
       "jp" | "https://www.apple.com/jp/support/systemstatus/"
+      "us" | "https://www.apple.com/support/systemstatus/"
+      ""   | "https://www.apple.com/support/systemstatus/"
     end
 
     with_them do

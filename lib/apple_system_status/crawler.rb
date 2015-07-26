@@ -1,6 +1,7 @@
 module AppleSystemStatus
   require "capybara"
   require 'capybara/poltergeist'
+  require "active_support/core_ext/object/blank"
 
   class Crawler
     USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"
@@ -55,10 +56,10 @@ module AppleSystemStatus
     end
 
     def apple_url(country)
-      if country
-        "https://www.apple.com/#{country}/support/systemstatus/"
-      else
+      if country.blank? || country == "us"
         "https://www.apple.com/support/systemstatus/"
+      else
+        "https://www.apple.com/#{country}/support/systemstatus/"
       end
     end
   end
