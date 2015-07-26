@@ -75,7 +75,7 @@ Usage:
   apple_system_status fetch
 
 Options:
-  [--country=COUNTRY]  # country code. (ex. jp, ca, fr)
+  [--country=COUNTRY]  # country code. (ex. jp, ca, fr. default. us)
   [--format=FORMAT]    # output format. (ex. plain, json)
                        # Default: plain
 ```

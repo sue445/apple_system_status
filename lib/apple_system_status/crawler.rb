@@ -13,6 +13,16 @@ module AppleSystemStatus
       @session.driver.headers = { "User-Agent" => USER_AGENT }
     end
 
+    # crawl apple system status page
+    # @param country [String] country code. (ex. jp, ca, fr. default. us)
+    # @return [Hash]
+    # @example response format
+    #   {
+    #     title: ,
+    #     services: [
+    #       { title: , description: , status:  }
+    #     ]
+    #   }
     def perform(country = nil)
       @session.visit(apple_url(country))
 
