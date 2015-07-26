@@ -1,6 +1,5 @@
 language: ruby
 rvm:
-  - 2.0
   - 2.1
   - 2.2
   - ruby-head
@@ -18,7 +17,6 @@ notifications:
     secure: wPazrrt03q4/4YEWTGejm2yB36hROtpeJKSojv4cE1gRQarQceyMZdOZU4gvJ7DP5ehGSikp+PvdhUj8ZGmUoLcaQQu89eCxa5BGf3sofYD2EOZJe33w+di+L++41/cFp6XJ9XRPxbmVjpmPzl28yq2nfzgdI90qhztcswojGyT3Pkj0STB4qu6T+Kmvd5o4vlWUsZlKiv20sAav5/kL86/K4gwakmpyxPYMafG4WcVGbXoHovOlwdHXdml3Ldfuq9IQ35tu0xJ23o6RoPHl38klOgQQj4k7vbtowWmE5UWZFzWkPpH9GDYtS3ML4yCcM7QLj8nEMVWj+QlTsICmKgKfvSpcs9jQtLQEykDS/H43dTu3gyLuGPcbKbR08cXxkOq6lAAuVV7avNkJb5yJV8Nj+1PWksbBbTNwURamjogRTejxX1dTTUsTQITrrCJyKCOM8LvigKTBmpkEiBR6wDZqZoAx6HXEu0O8G9XpT7aI3pJ85/RCxQdYDe193olcg25TQNjlrSaFl6M1VCMB3jzNcCHZkmiM9KnTRjTMSn/5FUxzAnGeaHvxff6wMffcPKS3E/j+2sXkdpsL1Kwtj6b7ejpL/Pbn6P926iWx8mUmH0xC04M8nQgDE1aorMuqHSSH0EPUUMGBdOPvXOjR2CEtEYgqH/ymDPsT/dUub1M=
 matrix:
   allow_failures:
-  - rvm: 2.0
   - rvm: ruby-head
 sudo: false
 cache: bundler
