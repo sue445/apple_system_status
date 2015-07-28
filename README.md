@@ -10,7 +10,7 @@
 
 ## Requirements
 * Ruby 2.1+
-* [Phantomjs](http://phantomjs.org/)
+* [Phantomjs](http://phantomjs.org/) (recommended v1.9.8+)
 
 ## Installation
 
