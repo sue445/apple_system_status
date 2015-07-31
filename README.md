@@ -2,6 +2,7 @@
 
 [Apple System Status](https://www.apple.com/support/systemstatus/) scraping library
 
+[![Gem Version](https://badge.fury.io/rb/apple_system_status.svg)](http://badge.fury.io/rb/apple_system_status)
 [![Build Status](https://travis-ci.org/sue445/apple_system_status.svg?branch=master)](https://travis-ci.org/sue445/apple_system_status)
 [![Code Climate](https://codeclimate.com/github/sue445/apple_system_status/badges/gpa.svg)](https://codeclimate.com/github/sue445/apple_system_status)
 [![Test Coverage](https://codeclimate.com/github/sue445/apple_system_status/badges/coverage.svg)](https://codeclimate.com/github/sue445/apple_system_status/coverage)
