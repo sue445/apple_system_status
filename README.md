@@ -31,10 +31,8 @@ Or install it yourself as:
 
 ## Usage (via. ruby)
 ```ruby
-crawler = AppleSystemStatus::Crawler.new
-
 # English
-pp crawler.perform
+pp AppleSystemStatus::Crawler.perform
 
 {:title=>"System Status as of 12:51 AM JST",
  :services=>
@@ -48,7 +46,7 @@ pp crawler.perform
 ]}
 
 # Japanese
-pp crawler.perform("jp")
+pp AppleSystemStatus::Crawler.perform("jp")
 
 {:title=>"00:53 JST 時点のシステム状況",
  :services=>
