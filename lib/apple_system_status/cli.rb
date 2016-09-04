@@ -8,7 +8,7 @@ module AppleSystemStatus
     option :title,   desc: "If specified, narrow the service title"
     option :format,  desc: "output format. (ex. plain, json)", default: "plain"
     def fetch
-      response = AppleSystemStatus::Crawler.new.perform(
+      response = AppleSystemStatus::Crawler.perform(
         country: options[:country],
         title:   options[:title],
       )
