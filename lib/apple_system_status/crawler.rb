@@ -14,8 +14,12 @@ module AppleSystemStatus
       @session.driver.headers = { "User-Agent" => USER_AGENT }
     end
 
+    def quit!
+      @session.driver.quit if @session
+    end
+
     # crawl apple system status page
-    # @param country [String] country code. (ex. jp, ca, fr. default. us)
+    # @param country [String] country code. (e.g. jp, ca, fr. default. us)
     # @param title   [String] If specified, narrow the service title
     # @return [Hash]
     # @example response format
@@ -66,6 +70,25 @@ module AppleSystemStatus
       else
         "https://www.apple.com/#{country}/support/systemstatus/"
       end
+    end
+
+    # crawl apple system status page. When finished crawling, clear capybara session
+    # @param country [String] country code. (e.g. jp, ca, fr. default. us)
+    # @param title   [String] If specified, narrow the service title
+    # @return [Hash]
+    # @example response format
+    #   {
+    #     title: ,
+    #     services: [
+    #       { title: , description: , status:  }
+    #     ]
+    #   }
+    # @link https://github.com/teampoltergeist/poltergeist#memory-leak
+    def self.perform(country: nil, title: nil)
+      crawler = AppleSystemStatus::Crawler.new
+      crawler.perform(country: country, title: title)
+    ensure
+      crawler.quit!
     end
   end
 end

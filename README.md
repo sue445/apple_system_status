@@ -31,10 +31,8 @@ Or install it yourself as:
 
 ## Usage (via. ruby)
 ```ruby
-crawler = AppleSystemStatus::Crawler.new
-
 # English
-pp crawler.perform
+pp AppleSystemStatus::Crawler.perform
 
 {:title=>"System Status as of 12:51 AM JST",
  :services=>
@@ -48,7 +46,7 @@ pp crawler.perform
 ]}
 
 # Japanese
-pp crawler.perform("jp")
+pp AppleSystemStatus::Crawler.perform(country: "jp")
 
 {:title=>"00:53 JST 時点のシステム状況",
  :services=>
@@ -76,11 +74,26 @@ Usage:
   apple_system_status fetch
 
 Options:
-  [--country=COUNTRY]  # country code. (ex. jp, ca, fr)
+  [--country=COUNTRY]  # country code. (e.g. jp, ca, fr)
                        # Default: us
   [--title=TITLE]      # If specified, narrow the service title
-  [--format=FORMAT]    # output format. (ex. plain, json)
+  [--format=FORMAT]    # output format. (e.g. plain, json)
                        # Default: plain
+```
+
+### Example
+```sh
+$ apple_system_status fetch --country=us --title="iTunes Store" --format=json | jq .
+{
+  "title": "System Status as of 4:33 PM JST",
+  "services": [
+    {
+      "title": "iTunes Store",
+      "description": "No Issues: iTunes Store",
+      "status": "allgood"
+    }
+  ]
+}
 ```
 
 ## Development
