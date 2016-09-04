@@ -80,4 +80,22 @@ describe AppleSystemStatus::Crawler do
       it { should eq url }
     end
   end
+
+  describe ".perform" do
+    let(:country) { "us" }
+    let(:title)   { "App Store" }
+
+    it "should return system services" do
+      actual = AppleSystemStatus::Crawler.perform(country: country, title: title)
+
+      aggregate_failures do
+        expect(actual[:title]).not_to be_blank
+        expect(actual[:services].length).to eq 1
+
+        service = actual[:services].first
+        expect(service).to be_a_service
+        expect(service[:title]).to eq title
+      end
+    end
+  end
 end
