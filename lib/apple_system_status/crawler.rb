@@ -19,7 +19,7 @@ module AppleSystemStatus
     end
 
     # crawl apple system status page
-    # @param country [String] country code. (ex. jp, ca, fr. default. us)
+    # @param country [String] country code. (e.g. jp, ca, fr. default. us)
     # @param title   [String] If specified, narrow the service title
     # @return [Hash]
     # @example response format
@@ -73,7 +73,7 @@ module AppleSystemStatus
     end
 
     # crawl apple system status page. When finished crawling, clear capybara session
-    # @param country [String] country code. (ex. jp, ca, fr. default. us)
+    # @param country [String] country code. (e.g. jp, ca, fr. default. us)
     # @param title   [String] If specified, narrow the service title
     # @return [Hash]
     # @example response format

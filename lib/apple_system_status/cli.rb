@@ -4,9 +4,9 @@ require "apple_system_status"
 module AppleSystemStatus
   class CLI < Thor
     desc "fetch", "Fetch apple system status"
-    option :country, desc: "country code. (ex. jp, ca, fr)", default: "us"
+    option :country, desc: "country code. (e.g. jp, ca, fr)", default: "us"
     option :title,   desc: "If specified, narrow the service title"
-    option :format,  desc: "output format. (ex. plain, json)", default: "plain"
+    option :format,  desc: "output format. (e.g. plain, json)", default: "plain"
     def fetch
       response = AppleSystemStatus::Crawler.perform(
         country: options[:country],

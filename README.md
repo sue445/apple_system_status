@@ -76,10 +76,10 @@ Usage:
   apple_system_status fetch
 
 Options:
-  [--country=COUNTRY]  # country code. (ex. jp, ca, fr)
+  [--country=COUNTRY]  # country code. (e.g. jp, ca, fr)
                        # Default: us
   [--title=TITLE]      # If specified, narrow the service title
-  [--format=FORMAT]    # output format. (ex. plain, json)
+  [--format=FORMAT]    # output format. (e.g. plain, json)
                        # Default: plain
 ```
 
