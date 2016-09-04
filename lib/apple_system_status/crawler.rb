@@ -14,6 +14,10 @@ module AppleSystemStatus
       @session.driver.headers = { "User-Agent" => USER_AGENT }
     end
 
+    def quit!
+      @session.driver.quit if @session
+    end
+
     # crawl apple system status page
     # @param country [String] country code. (ex. jp, ca, fr. default. us)
     # @param title   [String] If specified, narrow the service title

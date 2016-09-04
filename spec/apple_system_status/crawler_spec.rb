@@ -2,6 +2,10 @@ describe AppleSystemStatus::Crawler do
   let(:crawler){ AppleSystemStatus::Crawler.new }
 
   describe "#perform" do
+    after do
+      crawler.quit!
+    end
+
     context "no args" do
       it "should return system services" do
         actual = crawler.perform
