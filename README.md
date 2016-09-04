@@ -46,7 +46,7 @@ pp AppleSystemStatus::Crawler.perform
 ]}
 
 # Japanese
-pp AppleSystemStatus::Crawler.perform("jp")
+pp AppleSystemStatus::Crawler.perform(country: "jp")
 
 {:title=>"00:53 JST 時点のシステム状況",
  :services=>
