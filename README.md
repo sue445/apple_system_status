@@ -81,6 +81,21 @@ Options:
                        # Default: plain
 ```
 
+### Example
+```sh
+$ apple_system_status fetch --country=us --title="iTunes Store" --format=json | jq .
+{
+  "title": "System Status as of 4:33 PM JST",
+  "services": [
+    {
+      "title": "iTunes Store",
+      "description": "No Issues: iTunes Store",
+      "status": "allgood"
+    }
+  ]
+}
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment. Run `bundle exec apple_system_status` to use the gem in this directory, ignoring other installed copies of this gem.
