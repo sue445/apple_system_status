@@ -1,16 +1,24 @@
 # Change Log
 
-## [v0.1.1](https://github.com/sue445/apple_system_status/tree/v0.1.1) (2015/09/05)
+## [v0.2.0](https://github.com/sue445/apple_system_status/tree/v0.2.0) (2016-09-04)
+[Full Changelog](https://github.com/sue445/apple_system_status/compare/v0.1.1...v0.2.0)
+
+**Merged pull requests:**
+
+- Fix memory leak issue [\#12](https://github.com/sue445/apple_system_status/pull/12) ([sue445](https://github.com/sue445))
+- Build with ruby 2.3 on TravisCI [\#11](https://github.com/sue445/apple_system_status/pull/11) ([sue445](https://github.com/sue445))
+
+## [v0.1.1](https://github.com/sue445/apple_system_status/tree/v0.1.1) (2015-09-05)
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v0.1.0...v0.1.1)
 
 **Merged pull requests:**
 
 - ignore js errors [\#10](https://github.com/sue445/apple_system_status/pull/10) ([sue445](https://github.com/sue445))
 
-## [v0.1.0](https://github.com/sue445/apple_system_status/tree/v0.1.0) (2015/07/28)
+## [v0.1.0](https://github.com/sue445/apple_system_status/tree/v0.1.0) (2015-07-28)
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v0.1.0.beta3...v0.1.0)
 
-## [v0.1.0.beta3](https://github.com/sue445/apple_system_status/tree/v0.1.0.beta3) (2015/07/26)
+## [v0.1.0.beta3](https://github.com/sue445/apple_system_status/tree/v0.1.0.beta3) (2015-07-26)
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v0.1.0.beta2...v0.1.0.beta3)
 
 **Merged pull requests:**
@@ -21,14 +29,14 @@
 - sort by title [\#6](https://github.com/sue445/apple_system_status/pull/6) ([sue445](https://github.com/sue445))
 -  Write readme [\#4](https://github.com/sue445/apple_system_status/pull/4) ([sue445](https://github.com/sue445))
 
-## [v0.1.0.beta2](https://github.com/sue445/apple_system_status/tree/v0.1.0.beta2) (2015/07/25)
+## [v0.1.0.beta2](https://github.com/sue445/apple_system_status/tree/v0.1.0.beta2) (2015-07-25)
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v0.1.0.beta1...v0.1.0.beta2)
 
 **Merged pull requests:**
 
 - Fix error when exists blank cell [\#5](https://github.com/sue445/apple_system_status/pull/5) ([sue445](https://github.com/sue445))
 
-## [v0.1.0.beta1](https://github.com/sue445/apple_system_status/tree/v0.1.0.beta1) (2015/07/23)
+## [v0.1.0.beta1](https://github.com/sue445/apple_system_status/tree/v0.1.0.beta1) (2015-07-23)
 **Merged pull requests:**
 
 - refactor [\#3](https://github.com/sue445/apple_system_status/pull/3) ([sue445](https://github.com/sue445))
