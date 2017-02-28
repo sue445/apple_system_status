@@ -6,6 +6,8 @@ module AppleSystemStatus
   class Crawler
     USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"
 
+    MAX_RETRY_COUNT = 5
+
     def initialize
       Capybara.register_driver :poltergeist do |app|
         Capybara::Poltergeist::Driver.new(app, js_errors: false)
@@ -32,28 +34,24 @@ module AppleSystemStatus
     def perform(country: nil, title: nil)
       @session.visit(apple_url(country))
 
-      title_parts = [
-        @session.find("#key_date_text").text,
-        @session.find("#key_date").text,
-        @session.find("#key_date_post").text,
-      ]
-
       response = {
-        title:    title_parts.join(" ").strip,
+        title:    @session.find(".section-date .date-copy").text.strip,
         services: [],
       }
 
-      @session.all("#dashboard td").each_with_object(response[:services]) do |td, services|
-        begin
-          services << {
-            title:       td.find("p[role='text']").text,
-            description: td.find("p[role='text']")["aria-label"],
-            status:      td.find("span")["class"],
-          }
-        rescue Capybara::ElementNotFound
-          # NOTE: Capybara::Node::Matchers#has_css? is very slow!
+      MAX_RETRY_COUNT.times do
+        services = fetch_services
+
+        if services.empty?
+          # wait until the page is fully loaded
+          sleep 1
+        else
+          response[:services] = services
+          break
         end
       end
+
+      raise "Not found services" if response[:services].empty?
 
       unless title.blank?
         response[:services].select! { |service| service[:title] == title }
@@ -89,6 +87,26 @@ module AppleSystemStatus
       crawler.perform(country: country, title: title)
     ensure
       crawler.quit!
+    end
+
+    private
+
+    def fetch_services
+      @session.all("#ssp-lights-table td").each_with_object([]) do |td, services|
+        begin
+          names = td.find(".light-container .light-content.light-name").text.split(" - ")
+          light_image = td.find(".light-container .light-content.light-image div")["class"]
+
+          services << {
+            title:       names[0],
+            description: names[1],
+            status:      light_image.gsub("light-", ""),
+          }
+        rescue Capybara::ElementNotFound
+          # suppress error (for blank cell)
+          # NOTE: Capybara::Node::Matchers#has_css? is very slow!
+        end
+      end
     end
   end
 end
