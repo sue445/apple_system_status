@@ -33,7 +33,7 @@ describe AppleSystemStatus::Crawler do
     end
 
     context "has country (with blank cell)" do
-      let(:country) { "tw" }
+      let(:country) { "cn" }
 
       it "should return system services" do
         actual = crawler.perform(country: country)
