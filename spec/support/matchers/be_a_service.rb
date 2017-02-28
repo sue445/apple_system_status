@@ -1,6 +1,6 @@
 RSpec::Matchers.define :be_a_service do
   match do |actual|
-    actual[:title].present? && actual[:description].present? && actual[:status].present?
+    actual[:title].present? && actual[:status].present?
   end
 
   description do
