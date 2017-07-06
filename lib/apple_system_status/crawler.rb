@@ -10,7 +10,7 @@ module AppleSystemStatus
 
     def initialize
       Capybara.register_driver :poltergeist do |app|
-        Capybara::Poltergeist::Driver.new(app, js_errors: false)
+        Capybara::Poltergeist::Driver.new(app, js_errors: false, window_size: [1280, 800])
       end
       @session = Capybara::Session.new(:poltergeist)
       @session.driver.headers = { "User-Agent" => USER_AGENT }
@@ -94,7 +94,7 @@ module AppleSystemStatus
     def fetch_services
       @session.all("#ssp-lights-table td").each_with_object([]) do |td, services|
         begin
-          names = td.find(".light-container .light-content.light-name").text.split(" - ")
+          names = td.find(".light-container .light-content.light-name").text.split(":").map(&:strip)
           light_image = td.find(".light-container .light-content.light-image div")["class"]
 
           services << {
