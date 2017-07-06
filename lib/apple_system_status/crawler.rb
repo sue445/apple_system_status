@@ -94,7 +94,7 @@ module AppleSystemStatus
     def fetch_services
       @session.all("#ssp-lights-table td").each_with_object([]) do |td, services|
         begin
-          names = td.find(".light-container .light-content.light-name").text.split(" - ")
+          names = td.find(".light-container .light-content.light-name").text.split(":").map(&:strip)
           light_image = td.find(".light-container .light-content.light-image div")["class"]
 
           services << {
