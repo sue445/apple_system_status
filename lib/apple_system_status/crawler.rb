@@ -10,7 +10,7 @@ module AppleSystemStatus
 
     def initialize
       Capybara.register_driver :poltergeist do |app|
-        Capybara::Poltergeist::Driver.new(app, js_errors: false)
+        Capybara::Poltergeist::Driver.new(app, js_errors: false, window_size: [1280, 800])
       end
       @session = Capybara::Session.new(:poltergeist)
       @session.driver.headers = { "User-Agent" => USER_AGENT }
