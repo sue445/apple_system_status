@@ -1,5 +1,16 @@
 # Change Log
 
+## [v0.3.1](https://github.com/sue445/apple_system_status/tree/v0.3.1) (2017-07-06)
+[Full Changelog](https://github.com/sue445/apple_system_status/compare/v0.3.0...v0.3.1)
+
+**Closed issues:**
+
+- Fix. Not found services [\#16](https://github.com/sue445/apple_system_status/issues/16)
+
+**Merged pull requests:**
+
+- Fixed. Not found services [\#17](https://github.com/sue445/apple_system_status/pull/17) ([sue445](https://github.com/sue445))
+
 ## [v0.3.0](https://github.com/sue445/apple_system_status/tree/v0.3.0) (2017-02-28)
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v0.2.0...v0.3.0)
 
