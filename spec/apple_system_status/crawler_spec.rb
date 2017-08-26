@@ -7,6 +7,64 @@ describe AppleSystemStatus::Crawler do
     end
 
     context "no args" do
+      let(:us_service_titles) do
+        [
+          "App Store",
+          "Apple ID",
+          "Apple Music",
+          "Apple Online Store",
+          "Apple Pay",
+          "Apple School Manager",
+          "Apple TV",
+          "Back to My Mac",
+          "Beats 1",
+          "Dictation",
+          "Documents in the Cloud",
+          "FaceTime",
+          "Find My Friends",
+          "Find My iPhone",
+          "Game Center",
+          "Mac App Store",
+          "Mail Drop",
+          "Maps Display",
+          "Maps Routing & Navigation",
+          "Maps Search",
+          "Maps Traffic",
+          "News",
+          "Photo Print Products",
+          "Photos",
+          "Radio",
+          "SMS Text Forwarding",
+          "Siri",
+          "Spotlight suggestions",
+          "Volume Purchase Program",
+          "iBooks Store",
+          "iChat",
+          "iCloud Account & Sign In",
+          "iCloud Backup",
+          "iCloud Bookmarks & Tabs",
+          "iCloud Calendar",
+          "iCloud Contacts",
+          "iCloud Drive",
+          "iCloud Keychain",
+          "iCloud Mail",
+          "iCloud Notes",
+          "iCloud Reminders",
+          "iCloud Storage Upgrades",
+          "iCloud Web Apps (iCloud.com)",
+          "iMessage",
+          "iMovie Theater",
+          "iOS Device Activation",
+          "iPhone Calls to iPad and Mac",
+          "iTunes Match",
+          "iTunes Store",
+          "iTunes U",
+          "iTunes in the Cloud",
+          "iWork for iCloud",
+          "macOS Software Update",
+        ]
+      end
+
       it "should return system services" do
         actual = crawler.perform
 
@@ -14,12 +72,71 @@ describe AppleSystemStatus::Crawler do
           expect(actual[:title]).not_to be_blank
           expect(actual[:services]).not_to be_empty
           expect(actual[:services]).to all(be_a_service)
+
+          service_titles = actual[:services].map { |service| service[:title] }
+          expect(service_titles).to eq us_service_titles
         end
       end
     end
 
     context "has country" do
       let(:country) { "jp" }
+
+      let(:jp_service_titles) do
+        [
+          "App Store",
+          "Apple ID",
+          "Apple Music",
+          "Apple Online Store",
+          "Apple Pay",
+          "Apple School Manager",
+          "Apple TV",
+          "Beats 1",
+          "Documents in the Cloud",
+          "FaceTime",
+          "Game Center",
+          "Mac App Store",
+          "Mail Drop",
+          "Radio",
+          "SMSメッセージ転送",
+          "Siri",
+          "Spotlight の検索候補",
+          "Volume Purchase Program",
+          "iBooks Store",
+          "iChat",
+          "iCloud Drive",
+          "iCloud Web Apps (iCloud.com)",
+          "iCloud アカウントおよびサインイン",
+          "iCloud カレンダー",
+          "iCloud キーチェーン",
+          "iCloud ストレージアップグレード",
+          "iCloud バックアップ",
+          "iCloud ブックマークおよびタブ",
+          "iCloud メモ",
+          "iCloud メール",
+          "iCloud リマインダー",
+          "iCloud 連絡先",
+          "iMessage",
+          "iMovie Theater",
+          "iOS デバイスアクティベーション",
+          "iPhone から iPad や Mac へ通話",
+          "iPhoneを探す",
+          "iTunes Match",
+          "iTunes Store",
+          "iTunes U",
+          "iTunes in the Cloud",
+          "iWork for iCloud",
+          "macOS ソフトウェアアップデート",
+          "どこでも My Mac",
+          "フォトプリント製品",
+          "マップの検索",
+          "マップの経路案内とナビゲーション",
+          "マップの表示",
+          "写真",
+          "友達を探す",
+          "音声入力",
+        ]
+      end
 
       it "should return system services" do
         actual = crawler.perform(country: country)
@@ -28,6 +145,9 @@ describe AppleSystemStatus::Crawler do
           expect(actual[:title]).not_to be_blank
           expect(actual[:services]).not_to be_empty
           expect(actual[:services]).to all(be_a_service)
+
+          service_titles = actual[:services].map { |service| service[:title] }
+          expect(service_titles).to eq jp_service_titles
         end
       end
     end
