@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.3.2](https://github.com/sue445/apple_system_status/tree/v0.3.2) (2017-08-26)
+[Full Changelog](https://github.com/sue445/apple_system_status/compare/v0.3.1...v0.3.2)
+
+**Merged pull requests:**
+
+- Fixed: title including description [\#18](https://github.com/sue445/apple_system_status/pull/18) ([sue445](https://github.com/sue445))
+
 ## [v0.3.1](https://github.com/sue445/apple_system_status/tree/v0.3.1) (2017-07-06)
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v0.3.0...v0.3.1)
 
