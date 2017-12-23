@@ -75,7 +75,10 @@ describe AppleSystemStatus::Crawler do
           expect(actual[:services]).to all(be_a_service)
 
           service_titles = actual[:services].map { |service| service[:title] }
-          expect(service_titles).to eq us_service_titles
+
+          us_service_titles.each do |service|
+            expect(service_titles).to include service
+          end
         end
       end
     end
@@ -149,7 +152,10 @@ describe AppleSystemStatus::Crawler do
           expect(actual[:services]).to all(be_a_service)
 
           service_titles = actual[:services].map { |service| service[:title] }
-          expect(service_titles).to eq jp_service_titles
+
+          jp_service_titles.each do |service|
+            expect(service_titles).to include service
+          end
         end
       end
     end
