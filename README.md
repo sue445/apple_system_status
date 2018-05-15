@@ -7,7 +7,6 @@
 [![Code Climate](https://codeclimate.com/github/sue445/apple_system_status/badges/gpa.svg)](https://codeclimate.com/github/sue445/apple_system_status)
 [![Test Coverage](https://codeclimate.com/github/sue445/apple_system_status/badges/coverage.svg)](https://codeclimate.com/github/sue445/apple_system_status/coverage)
 [![Coverage Status](https://coveralls.io/repos/sue445/apple_system_status/badge.svg?branch=master&service=github)](https://coveralls.io/github/sue445/apple_system_status?branch=master)
-[![Dependency Status](https://gemnasium.com/sue445/apple_system_status.svg)](https://gemnasium.com/sue445/apple_system_status)
 
 ## Requirements
 * Ruby 2.1+
