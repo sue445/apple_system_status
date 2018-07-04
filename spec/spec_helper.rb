@@ -116,4 +116,8 @@ RSpec.configure do |config|
   #   Kernel.srand config.seed
 
   config.order = :random
+
+  config.before do
+    stub_const("AppleSystemStatus::Crawler::MAX_RETRY_COUNT", 20)
+  end
 end
