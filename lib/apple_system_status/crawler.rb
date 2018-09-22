@@ -1,7 +1,6 @@
 module AppleSystemStatus
   require "capybara"
   require "selenium-webdriver"
-  require "active_support/core_ext/object/blank"
 
   class Crawler
     USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"
@@ -66,7 +65,7 @@ module AppleSystemStatus
 
       raise "Not found services" if response[:services].empty?
 
-      unless title.blank?
+      unless self.class.blank_string?(title)
         response[:services].select! { |service| service[:title] == title }
       end
 
@@ -76,7 +75,7 @@ module AppleSystemStatus
     end
 
     def apple_url(country)
-      if country.blank? || country == "us"
+      if self.class.blank_string?(country) || country == "us"
         "https://www.apple.com/support/systemstatus/"
       else
         "https://www.apple.com/#{country}/support/systemstatus/"
@@ -100,6 +99,11 @@ module AppleSystemStatus
       crawler.perform(country: country, title: title)
     ensure
       crawler.quit!
+    end
+
+    def self.blank_string?(str)
+      return true unless str
+      str.strip.empty?
     end
 
     private
