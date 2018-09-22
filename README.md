@@ -9,8 +9,8 @@
 [![Coverage Status](https://coveralls.io/repos/sue445/apple_system_status/badge.svg?branch=master&service=github)](https://coveralls.io/github/sue445/apple_system_status?branch=master)
 
 ## Requirements
-* Ruby 2.1+
-* [Phantomjs](http://phantomjs.org/) (recommended v2.1.1+)
+* Ruby 2.2+
+* Headless CHrome
 
 ## Installation
 
