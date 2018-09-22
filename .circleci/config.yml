@@ -54,9 +54,6 @@ rspec_steps: &rspec_steps
 
 build_jobs: &build_jobs
   - checkout_code
-  - ruby:2.1:
-      requires:
-        - checkout_code
   - ruby:2.2:
       requires:
         - checkout_code
@@ -79,16 +76,6 @@ jobs:
 
       - save_cache:
           <<: *save_repo_cache_option
-
-  ruby:2.1:
-    <<: *default
-
-    docker:
-      - image: circleci/ruby:2.1-node-browsers
-        environment:
-          <<: *environment
-
-    steps: *rspec_steps
 
   ruby:2.2:
     <<: *default
