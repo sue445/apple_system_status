@@ -16,4 +16,7 @@ if Gem::Version.create(RUBY_VERSION) < Gem::Version.create("2.2.0")
     # NOTE: byebug 9.1.0+ requires ruby 2.2.0+
     gem "byebug", "< 9.1.0", group: :test
   end
+
+  # NOTE: xpath v3+ requires ruby 2.2+
+  gem "xpath", "< 3.0.0"
 end
