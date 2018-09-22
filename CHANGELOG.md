@@ -1,5 +1,24 @@
 # Change Log
 
+## [v1.0.0](https://github.com/sue445/apple_system_status/tree/v1.0.0) (2018-09-22)
+[Full Changelog](https://github.com/sue445/apple_system_status/compare/v0.3.2...v1.0.0)
+
+**Closed issues:**
+
+- Use chrome headless instead of phantomjs [\#24](https://github.com/sue445/apple_system_status/issues/24)
+
+**Merged pull requests:**
+
+- Drop support ruby 2.1 [\#28](https://github.com/sue445/apple_system_status/pull/28) ([sue445](https://github.com/sue445))
+- Remove activesupport from runtime dependency [\#27](https://github.com/sue445/apple_system_status/pull/27) ([sue445](https://github.com/sue445))
+- Tweak spec [\#26](https://github.com/sue445/apple_system_status/pull/26) ([sue445](https://github.com/sue445))
+- Migrate to Chrome Headless [\#25](https://github.com/sue445/apple_system_status/pull/25) ([sue445](https://github.com/sue445))
+- Fix spec [\#23](https://github.com/sue445/apple_system_status/pull/23) ([sue445](https://github.com/sue445))
+- Tweak gem group for development dependency [\#22](https://github.com/sue445/apple_system_status/pull/22) ([sue445](https://github.com/sue445))
+- CI against ruby 2.5.0 [\#21](https://github.com/sue445/apple_system_status/pull/21) ([sue445](https://github.com/sue445))
+- Fix failed spec [\#20](https://github.com/sue445/apple_system_status/pull/20) ([sue445](https://github.com/sue445))
+- Fix failed spec [\#19](https://github.com/sue445/apple_system_status/pull/19) ([sue445](https://github.com/sue445))
+
 ## [v0.3.2](https://github.com/sue445/apple_system_status/tree/v0.3.2) (2017-08-26)
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v0.3.1...v0.3.2)
 
