@@ -102,6 +102,11 @@ module AppleSystemStatus
       crawler.quit!
     end
 
+    def self.blank_string?(str)
+      return true unless str
+      !!str.strip.empty?
+    end
+
     private
 
     def fetch_services

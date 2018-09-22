@@ -218,4 +218,22 @@ describe AppleSystemStatus::Crawler do
       end
     end
   end
+
+  describe "#blank_string?" do
+    subject { AppleSystemStatus::Crawler.blank_string?(str) }
+
+    using RSpec::Parameterized::TableSyntax
+
+    where(:str, :expected) do
+      nil     | true
+      ""      | true
+      " "     | true
+      "aaa"   | false
+      " aaa " | false
+    end
+
+    with_them do
+      it { should eq expected }
+    end
+  end
 end
