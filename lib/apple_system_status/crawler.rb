@@ -1,6 +1,6 @@
 module AppleSystemStatus
   require "capybara"
-  require 'capybara/poltergeist'
+  require "selenium-webdriver"
   require "active_support/core_ext/object/blank"
 
   class Crawler
@@ -9,11 +9,24 @@ module AppleSystemStatus
     MAX_RETRY_COUNT = 5
 
     def initialize
-      Capybara.register_driver :poltergeist do |app|
-        Capybara::Poltergeist::Driver.new(app, js_errors: false, window_size: [1280, 800])
+      Capybara.register_driver :chrome_headless do |app|
+        client = Selenium::WebDriver::Remote::Http::Default.new
+        client.read_timeout = 120
+
+        capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+          chromeOptions: {
+            args: ["headless", "disable-gpu", "window-size=1280,800", "no-sandbox", "user-agent=#{USER_AGENT}"]
+          }
+        )
+
+        Capybara::Selenium::Driver.new(
+          app,
+          browser: :chrome,
+          desired_capabilities: capabilities,
+          http_client: client,
+        )
       end
-      @session = Capybara::Session.new(:poltergeist)
-      @session.driver.headers = { "User-Agent" => USER_AGENT }
+      @session = Capybara::Session.new(:chrome_headless)
     end
 
     def quit!
