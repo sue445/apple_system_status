@@ -66,7 +66,7 @@ describe AppleSystemStatus::Crawler do
         actual = crawler.perform
 
         aggregate_failures do
-          expect(actual[:title]).not_to be_blank
+          expect(actual[:title]).not_to be_empty
           expect(actual[:services]).not_to be_empty
           expect(actual[:services]).to all(be_a_service)
 
@@ -139,7 +139,7 @@ describe AppleSystemStatus::Crawler do
         actual = crawler.perform(country: country)
 
         aggregate_failures do
-          expect(actual[:title]).not_to be_blank
+          expect(actual[:title]).not_to be_empty
           expect(actual[:services]).not_to be_empty
           expect(actual[:services]).to all(be_a_service)
 
@@ -159,7 +159,7 @@ describe AppleSystemStatus::Crawler do
         actual = crawler.perform(country: country)
 
         aggregate_failures do
-          expect(actual[:title]).not_to be_blank
+          expect(actual[:title]).not_to be_empty
           expect(actual[:services]).not_to be_empty
           expect(actual[:services]).to all(be_a_service)
         end
@@ -173,7 +173,7 @@ describe AppleSystemStatus::Crawler do
         actual = crawler.perform(title: title)
 
         aggregate_failures do
-          expect(actual[:title]).not_to be_blank
+          expect(actual[:title]).not_to be_empty
           expect(actual[:services].length).to eq 1
 
           service = actual[:services].first
@@ -209,7 +209,7 @@ describe AppleSystemStatus::Crawler do
       actual = AppleSystemStatus::Crawler.perform(country: country, title: title)
 
       aggregate_failures do
-        expect(actual[:title]).not_to be_blank
+        expect(actual[:title]).not_to be_empty
         expect(actual[:services].length).to eq 1
 
         service = actual[:services].first
