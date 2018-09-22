@@ -21,14 +21,6 @@ default: &default
 
   working_directory: ~/app
 
-restore_repo_cache_option: &restore_repo_cache_option
-  key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
-
-save_repo_cache_option: &save_repo_cache_option
-  key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
-  paths:
-    - ~/app
-
 restore_bundle_cache_option: &restore_bundle_cache_option
   keys:
     - v1-bundle-{{ .Environment.CIRCLE_JOB }}-{{ epoch }}
@@ -41,8 +33,7 @@ save_bundle_cache_option: &save_bundle_cache_option
     - ~/app/Gemfile.lock
 
 rspec_steps: &rspec_steps
-  - restore_cache:
-      <<: *restore_repo_cache_option
+  - checkout
   - restore_cache:
       <<: *restore_bundle_cache_option
   - run: ./.circleci/setup.sh
@@ -53,30 +44,12 @@ rspec_steps: &rspec_steps
   - run: bundle exec codeclimate-test-reporter
 
 build_jobs: &build_jobs
-  - checkout_code
-  - ruby:2.2:
-      requires:
-        - checkout_code
-  - ruby:2.3:
-      requires:
-        - checkout_code
-  - ruby:2.4:
-      requires:
-        - checkout_code
-  - ruby:2.5:
-      requires:
-        - checkout_code
+  - ruby:2.2
+  - ruby:2.3
+  - ruby:2.4
+  - ruby:2.5
 
 jobs:
-  checkout_code:
-    <<: *default
-
-    steps:
-      - checkout
-
-      - save_cache:
-          <<: *save_repo_cache_option
-
   ruby:2.2:
     <<: *default
 
