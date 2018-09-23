@@ -5,16 +5,25 @@ module AppleSystemStatus
   class Crawler
     USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"
 
+    DEFAULT_CHROME_OPTIONS_ARGS = %W(
+      headless
+      disable-gpu
+      window-size=1280,800
+      no-sandbox
+      user-agent=#{USER_AGENT}
+    ).freeze
+
     MAX_RETRY_COUNT = 5
 
-    def initialize
+    # @param chrome_options_args [Array<String>]
+    def initialize(chrome_options_args: DEFAULT_CHROME_OPTIONS_ARGS)
       Capybara.register_driver :chrome_headless do |app|
         client = Selenium::WebDriver::Remote::Http::Default.new
         client.read_timeout = 120
 
         capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
           chromeOptions: {
-            args: ["headless", "disable-gpu", "window-size=1280,800", "no-sandbox", "user-agent=#{USER_AGENT}"]
+            args: chrome_options_args,
           }
         )
 
