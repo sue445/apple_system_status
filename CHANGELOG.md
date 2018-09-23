@@ -1,5 +1,21 @@
 # Change Log
 
+## [Unreleased](https://github.com/sue445/apple_system_status/tree/HEAD)
+
+[Full Changelog](https://github.com/sue445/apple_system_status/compare/v1.0.1...HEAD)
+
+**Closed issues:**
+
+- Add chrome\_options\_args to Crawler\#initialize [\#30](https://github.com/sue445/apple_system_status/issues/30)
+
+## [v1.0.1](https://github.com/sue445/apple_system_status/tree/v1.0.1) (2018-09-23)
+[Full Changelog](https://github.com/sue445/apple_system_status/compare/v1.0.0...v1.0.1)
+
+**Merged pull requests:**
+
+- Add chrome\_options\_args to Crawler\#initialize [\#31](https://github.com/sue445/apple_system_status/pull/31) ([sue445](https://github.com/sue445))
+- Tweak CI setting [\#29](https://github.com/sue445/apple_system_status/pull/29) ([sue445](https://github.com/sue445))
+
 ## [v1.0.0](https://github.com/sue445/apple_system_status/tree/v1.0.0) (2018-09-22)
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v0.3.2...v1.0.0)
 
