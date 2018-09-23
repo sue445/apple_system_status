@@ -94,6 +94,7 @@ module AppleSystemStatus
     # crawl apple system status page. When finished crawling, clear capybara session
     # @param country [String] country code. (e.g. jp, ca, fr. default. us)
     # @param title   [String] If specified, narrow the service title
+    # @param chrome_options_args [Array<String>]
     # @return [Hash]
     # @example response format
     #   {
@@ -103,8 +104,8 @@ module AppleSystemStatus
     #     ]
     #   }
     # @link https://github.com/teampoltergeist/poltergeist#memory-leak
-    def self.perform(country: nil, title: nil)
-      crawler = AppleSystemStatus::Crawler.new
+    def self.perform(country: nil, title: nil, chrome_options_args: DEFAULT_CHROME_OPTIONS_ARGS)
+      crawler = AppleSystemStatus::Crawler.new(chrome_options_args: chrome_options_args)
       crawler.perform(country: country, title: title)
     ensure
       crawler.quit!
