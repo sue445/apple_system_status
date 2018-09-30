@@ -16,16 +16,16 @@ module AppleSystemStatus
     MAX_RETRY_COUNT = 5
 
     # @param chrome_options_args [Array<String>]
-    def initialize(chrome_options_args: DEFAULT_CHROME_OPTIONS_ARGS)
+    # @param chrome_options_binary [String]
+    def initialize(chrome_options_args: DEFAULT_CHROME_OPTIONS_ARGS, chrome_options_binary: nil)
       Capybara.register_driver :chrome_headless do |app|
         client = Selenium::WebDriver::Remote::Http::Default.new
         client.read_timeout = 120
 
-        capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-          chromeOptions: {
-            args: chrome_options_args,
-          }
-        )
+        chrome_options = { args: chrome_options_args }
+        chrome_options[:binary] = chrome_options_binary if chrome_options_binary
+
+        capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: chrome_options)
 
         Capybara::Selenium::Driver.new(
           app,
@@ -95,6 +95,7 @@ module AppleSystemStatus
     # @param country [String] country code. (e.g. jp, ca, fr. default. us)
     # @param title   [String] If specified, narrow the service title
     # @param chrome_options_args [Array<String>]
+    # @param chrome_options_binary [String]
     # @return [Hash]
     # @example response format
     #   {
@@ -104,8 +105,8 @@ module AppleSystemStatus
     #     ]
     #   }
     # @link https://github.com/teampoltergeist/poltergeist#memory-leak
-    def self.perform(country: nil, title: nil, chrome_options_args: DEFAULT_CHROME_OPTIONS_ARGS)
-      crawler = AppleSystemStatus::Crawler.new(chrome_options_args: chrome_options_args)
+    def self.perform(country: nil, title: nil, chrome_options_args: DEFAULT_CHROME_OPTIONS_ARGS, chrome_options_binary: nil)
+      crawler = AppleSystemStatus::Crawler.new(chrome_options_args: chrome_options_args, chrome_options_binary: chrome_options_binary)
       crawler.perform(country: country, title: title)
     ensure
       crawler.quit!
