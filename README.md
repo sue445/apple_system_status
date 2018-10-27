@@ -10,7 +10,7 @@
 
 ## Requirements
 * Ruby 2.2+
-* Headless CHrome
+* Headless Chrome
 
 ## Installation
 
