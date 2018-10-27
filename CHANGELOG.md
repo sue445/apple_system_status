@@ -1,5 +1,12 @@
 # Change Log
 
+## [v1.0.3](https://github.com/sue445/apple_system_status/tree/v1.0.3) (2018-10-27)
+[Full Changelog](https://github.com/sue445/apple_system_status/compare/v1.0.2...v1.0.3)
+
+**Merged pull requests:**
+
+- Add chrome\_options\_binary arg [\#33](https://github.com/sue445/apple_system_status/pull/33) ([sue445](https://github.com/sue445))
+
 ## [v1.0.2](https://github.com/sue445/apple_system_status/tree/v1.0.2) (2018-09-23)
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v1.0.1...v1.0.2)
 
