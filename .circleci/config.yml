@@ -1,94 +1,78 @@
-# Ruby CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-ruby/ for more details
-#
-version: 2
+version: 2.1
 
-environment: &environment
-  LANG:     en_US.UTF-8
-  LANGUAGE: en_US.UTF-8
-  LC_ALL:   C.UTF-8
+executors:
+  ruby:
+    parameters:
+      version:
+        type: string
+    docker:
+      - image: circleci/ruby:<< parameters.version >>-node-browsers
+    environment:
+      # c.f. https://github.com/ffaker/ffaker/issues/277#issuecomment-263519146
+      LANG:     en_US.UTF-8
+      LANGUAGE: en_US.UTF-8
+      LC_ALL:   C.UTF-8
 
-  BUNDLE_PATH: vendor/bundle
-  BUNDLE_JOBS: 4
-  CODECLIMATE_REPO_TOKEN: 89b665462d69ce4c873ee8165d496c4a97b9afaaf48e375c1bc3200e4b45b1e7
+      BUNDLE_PATH: vendor/bundle
+      BUNDLE_JOBS: 4
+      CODECLIMATE_REPO_TOKEN: 89b665462d69ce4c873ee8165d496c4a97b9afaaf48e375c1bc3200e4b45b1e7
+    working_directory: ~/app
 
-default: &default
-  docker:
-    - image: circleci/ruby
-      environment:
-        <<: *environment
+commands:
+  setup_bundle:
+    description: "Setup bundle with cache"
+    steps:
+      - restore_cache:
+          keys:
+            - v2-bundle-{{ .Environment.CIRCLE_JOB }}-{{ checksum "apple_system_status.gemspec" }}
+            - v2-bundle-{{ .Environment.CIRCLE_JOB }}
 
-  working_directory: ~/app
+      - run:
+          name: Setup
+          command: |
+            set -xe
 
-restore_bundle_cache_option: &restore_bundle_cache_option
-  keys:
-    - v1-bundle-{{ .Environment.CIRCLE_JOB }}-{{ epoch }}
-    - v1-bundle-{{ .Environment.CIRCLE_JOB }}
+            ruby --version
+            bundle --version
+            gem --version
 
-save_bundle_cache_option: &save_bundle_cache_option
-  key: v1-bundle-{{ .Environment.CIRCLE_JOB }}-{{ epoch }}
-  paths:
-    - ~/app/vendor/bundle
-    - ~/app/Gemfile.lock
+            bundle update
+            bundle clean
 
-rspec_steps: &rspec_steps
-  - checkout
-  - restore_cache:
-      <<: *restore_bundle_cache_option
-  - run: ./.circleci/setup.sh
-  - save_cache:
-      <<: *save_bundle_cache_option
-
-  - run: bundle exec rspec
-  - run: bundle exec codeclimate-test-reporter
-
-build_jobs: &build_jobs
-  - ruby:2.2
-  - ruby:2.3
-  - ruby:2.4
-  - ruby:2.5
+      - save_cache:
+          key: v2-bundle-{{ .Environment.CIRCLE_JOB }}-{{ checksum "apple_system_status.gemspec" }}
+          paths:
+            - ~/app/vendor/bundle
+            - ~/app/Gemfile.lock
 
 jobs:
-  ruby:2.2:
-    <<: *default
+  rspec:
+    parameters:
+      version:
+        type: string
+    executor:
+      name: ruby
+      version: << parameters.version >>
+    steps:
+      - checkout
+      - setup_bundle
 
-    docker:
-      - image: circleci/ruby:2.2-node-browsers
-        environment:
-          <<: *environment
+      - run: bundle exec rspec
+      - run: bundle exec codeclimate-test-reporter
 
-    steps: *rspec_steps
-
-  ruby:2.3:
-    <<: *default
-
-    docker:
-      - image: circleci/ruby:2.3-node-browsers
-        environment:
-          <<: *environment
-
-    steps: *rspec_steps
-
-  ruby:2.4:
-    <<: *default
-
-    docker:
-      - image: circleci/ruby:2.4-node-browsers
-        environment:
-          <<: *environment
-
-    steps: *rspec_steps
-
-  ruby:2.5:
-    <<: *default
-
-    docker:
-      - image: circleci/ruby:2.5-node-browsers
-        environment:
-          <<: *environment
-
-    steps: *rspec_steps
+build_jobs: &build_jobs
+  - rspec:
+      name:    "rspec:2.2"
+      version: "2.2"
+  - rspec:
+      name:    "rspec:2.3"
+      version: "2.3"
+  - rspec:
+      name:    "rspec:2.4"
+      version: "2.4"
+  - rspec:
+      name:    "rspec:2.5"
+      version: "2.5"
 
 workflows:
   version: 2
