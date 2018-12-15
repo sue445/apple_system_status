@@ -10,6 +10,7 @@ describe AppleSystemStatus::Crawler do
       let(:us_service_titles) do
         [
           "App Store",
+          "Apple Books",
           "Apple ID",
           "Apple Music",
           "Apple Music Subscriptions",
@@ -38,7 +39,6 @@ describe AppleSystemStatus::Crawler do
           "Siri",
           "Spotlight suggestions",
           "Volume Purchase Program",
-          "iBooks Store",
           "iCloud Account & Sign In",
           "iCloud Backup",
           "iCloud Bookmarks & Tabs",
@@ -85,6 +85,7 @@ describe AppleSystemStatus::Crawler do
       let(:jp_service_titles) do
         [
           "App Store",
+          "Apple Books",
           "Apple ID",
           "Apple Music",
           "Apple Musicの登録",
@@ -102,7 +103,6 @@ describe AppleSystemStatus::Crawler do
           "Siri",
           "Spotlightの検索候補",
           "Volume Purchase Program",
-          "iBooks Store",
           "iCloud Drive",
           "iCloud Web Apps (iCloud.com)",
           "iCloudアカウントおよびサインイン",
