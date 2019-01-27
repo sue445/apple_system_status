@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  ruby-orbs: sue445/ruby-orbs@volatile
+
 executors:
   ruby:
     parameters:
@@ -19,32 +22,6 @@ executors:
     working_directory: ~/app
 
 commands:
-  setup_bundle:
-    description: "Setup bundle with cache"
-    steps:
-      - restore_cache:
-          keys:
-            - v2-bundle-{{ .Environment.CIRCLE_JOB }}-{{ checksum "apple_system_status.gemspec" }}
-            - v2-bundle-{{ .Environment.CIRCLE_JOB }}
-
-      - run:
-          name: Setup
-          command: |
-            set -xe
-
-            ruby --version
-            bundle --version
-            gem --version
-
-            bundle update
-            bundle clean
-
-      - save_cache:
-          key: v2-bundle-{{ .Environment.CIRCLE_JOB }}-{{ checksum "apple_system_status.gemspec" }}
-          paths:
-            - ~/app/vendor/bundle
-            - ~/app/Gemfile.lock
-
   with-cc-test-reporter:
     description: "Run test with cc-test-reporter"
     parameters:
@@ -75,7 +52,13 @@ jobs:
       version: << parameters.version >>
     steps:
       - checkout
-      - setup_bundle
+      - run: bundle --version
+      - run: gem --version
+      - ruby-orbs/bundle-install:
+          with_gemfile_lock: false
+          gemspec_name: "apple_system_status"
+          cache_key_prefix: "v2-bundle"
+          update_always: true
       - with-cc-test-reporter:
           steps:
             - run: bundle exec rspec
