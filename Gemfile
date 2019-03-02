@@ -7,3 +7,8 @@ if Gem::Version.create(RUBY_VERSION) < Gem::Version.create("2.2.2")
   # NOTE: rack 2.x supports only ruby 2.2.2+
   gem "rack", "< 2.0.0"
 end
+
+if Gem::Version.create(RUBY_VERSION) < Gem::Version.create("2.3.0")
+  # NOTE: xpath 3.2.0+ requires ruby 2.3.0+
+  gem "xpath", "< 3.2.0"
+end
