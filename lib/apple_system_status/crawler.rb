@@ -11,6 +11,7 @@ module AppleSystemStatus
       window-size=1280,800
       no-sandbox
       user-agent=#{USER_AGENT}
+      --enable-features=NetworkService,NetworkServiceInProcess
     ).freeze
 
     MAX_RETRY_COUNT = 5
