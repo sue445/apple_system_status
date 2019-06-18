@@ -29,6 +29,7 @@ module AppleSystemStatus
 
         chrome_options = { args: chrome_options_args }
         chrome_options[:binary] = chrome_options_binary if chrome_options_binary
+        chrome_options[:w3c] = false
 
         capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: chrome_options)
 
