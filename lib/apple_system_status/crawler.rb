@@ -11,7 +11,11 @@ module AppleSystemStatus
       window-size=1280,800
       no-sandbox
       user-agent=#{USER_AGENT}
+
+      disable-dev-shm-usage
+      disable-popup-blocking
       --enable-features=NetworkService,NetworkServiceInProcess
+      --disable-features=VizDisplayCompositor
     ).freeze
 
     MAX_RETRY_COUNT = 5
