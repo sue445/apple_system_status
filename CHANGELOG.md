@@ -1,5 +1,11 @@
 # Change Log
 
+## [v1.0.4](https://github.com/sue445/apple_system_status/tree/v1.0.4) (2019-06-19)
+[Full Changelog](https://github.com/sue445/apple_system_status/compare/v1.0.3...v1.0.4)
+
+* Disable w3c for chrome75+
+  * https://github.com/sue445/apple_system_status/pull/43
+
 ## [v1.0.3](https://github.com/sue445/apple_system_status/tree/v1.0.3) (2018-10-27)
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v1.0.2...v1.0.3)
 
