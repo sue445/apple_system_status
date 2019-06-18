@@ -60,10 +60,14 @@ module AppleSystemStatus
         services: [],
       }
 
-      MAX_RETRY_COUNT.times do
+      puts "response=#{response}"
+
+      MAX_RETRY_COUNT.times do |n|
         services = fetch_services
 
         if services.empty?
+          puts "sleep times: #{n+1}"
+
           # wait until the page is fully loaded
           sleep 1
         else
@@ -130,9 +134,12 @@ module AppleSystemStatus
             description: names[1],
             status:      light_image.gsub("light-", ""),
           }
-        rescue Capybara::ElementNotFound
+        rescue Capybara::ElementNotFound => e
           # suppress error (for blank cell)
           # NOTE: Capybara::Node::Matchers#has_css? is very slow!
+
+          # TODO: debug
+          puts "fetch_services: #{e}"
         end
       end
     end

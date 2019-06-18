@@ -61,6 +61,10 @@ jobs:
           update_always: true
       - with-cc-test-reporter:
           steps:
+            # TODO: debug
+            - run: google-chrome --version
+            - run: chromedriver --version
+
             - run: bundle exec rspec
 
 build_jobs: &build_jobs
