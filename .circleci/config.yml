@@ -54,6 +54,8 @@ jobs:
       - checkout
       - run: bundle --version
       - run: gem --version
+      - run: google-chrome --version
+      - run: chromedriver --version
       - ruby-orbs/bundle-install:
           with_gemfile_lock: false
           gemspec_name: "apple_system_status"
