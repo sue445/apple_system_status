@@ -1,7 +1,8 @@
 version: 2.1
 
 orbs:
-  ruby-orbs: sue445/ruby-orbs@volatile
+  ruby-orbs:   sue445/ruby-orbs@volatile
+  codeclimate: sue445/codeclimate@volatile
 
 executors:
   ruby:
@@ -20,27 +21,6 @@ executors:
       BUNDLE_JOBS: 4
       CC_TEST_REPORTER_ID: 89b665462d69ce4c873ee8165d496c4a97b9afaaf48e375c1bc3200e4b45b1e7
     working_directory: ~/app
-
-commands:
-  with-cc-test-reporter:
-    description: "Run test with cc-test-reporter"
-    parameters:
-      steps:
-        type: steps
-        default: []
-        description: "Run steps between `before-build` and `after-build`"
-    steps:
-      - run:
-          name: Setup Code Climate test-reporter
-          command: |
-            # download test reporter as a static binary
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
-      - run: ./cc-test-reporter before-build
-      - steps: << parameters.steps >>
-      - run:
-          command: ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
-          when: always
 
 jobs:
   rspec:
@@ -61,7 +41,8 @@ jobs:
           gemspec_name: "apple_system_status"
           cache_key_prefix: "v2-bundle"
           update_always: true
-      - with-cc-test-reporter:
+      - codeclimate/with-cc-test-reporter:
+          after_build_args: "--coverage-input-type simplecov"
           steps:
             - run: bundle exec rspec
 
