@@ -22,8 +22,6 @@ describe AppleSystemStatus::Crawler do
           "Dictation",
           "Documents in the Cloud",
           "FaceTime",
-          "Find My Friends",
-          "Find My iPhone",
           "Game Center",
           "Mac App Store",
           "Mail Drop",
@@ -115,7 +113,6 @@ describe AppleSystemStatus::Crawler do
           "iCloud連絡先",
           "iMessage",
           "iOSデバイスアクティベーション",
-          "iPhoneを探す",
           "iTunes Match",
           "iTunes Store",
           "iTunes U",
@@ -126,7 +123,6 @@ describe AppleSystemStatus::Crawler do
           "マップの経路案内とナビゲーション",
           "マップの表示",
           "写真",
-          "友達を探す",
           "音声入力",
         ]
       end
