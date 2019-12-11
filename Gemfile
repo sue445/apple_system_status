@@ -22,4 +22,7 @@ end
 if Gem::Version.create(RUBY_VERSION) < Gem::Version.create("2.4.0")
   # NOTE: capybara 3.16.0+ requires ruby 2.4.0+
   gem "capybara", "< 3.16.0"
+
+  # NOTE: rubyzip 2.0.0+ requires ruby 2.4.0+
+  gem "rubyzip", "< 2.0.0"
 end
