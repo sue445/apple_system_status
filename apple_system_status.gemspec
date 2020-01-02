@@ -40,5 +40,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "rspec-parameterized"
   spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "unparser", ">= 0.4.5"
   spec.add_development_dependency "yard"
 end
