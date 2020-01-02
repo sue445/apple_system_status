@@ -39,7 +39,7 @@ jobs:
       - ruby-orbs/bundle-install:
           with_gemfile_lock: false
           gemspec_name: "apple_system_status"
-          cache_key_prefix: "v2-bundle"
+          cache_key_prefix: "v3-bundle"
           update_always: true
       - codeclimate/with-cc-test-reporter:
           after_build_args: "--coverage-input-type simplecov"
@@ -62,6 +62,9 @@ build_jobs: &build_jobs
   - rspec:
       name:    "rspec:2.6"
       version: "2.6"
+  - rspec:
+      name:    "rspec:2.7"
+      version: "2.7"
 
 workflows:
   version: 2
