@@ -51,7 +51,6 @@ describe AppleSystemStatus::Crawler do
           "iTunes Match",
           "iTunes Store",
           "iTunes U",
-          "iTunes in the Cloud",
           "iWork for iCloud",
           "macOS Software Update",
         ]
@@ -114,7 +113,6 @@ describe AppleSystemStatus::Crawler do
           "iTunes Match",
           "iTunes Store",
           "iTunes U",
-          "iTunes in the Cloud",
           "iWork for iCloud",
           "macOSソフトウェアアップデート",
           "マップの検索",
