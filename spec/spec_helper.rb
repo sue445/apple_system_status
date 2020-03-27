@@ -33,7 +33,6 @@ $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 require "apple_system_status"
 require "apple_system_status/cli"
 
-require "pry-byebug"
 require "rspec-parameterized"
 
 Dir["#{__dir__}/support/**/*.rb"].each { |f| require f }
