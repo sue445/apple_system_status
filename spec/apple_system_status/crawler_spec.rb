@@ -82,7 +82,6 @@ describe AppleSystemStatus::Crawler do
           "Apple Books",
           "Apple ID",
           "Apple Music",
-          "Apple Musicの登録",
           "Apple Online Store",
           "Apple Pay",
           "Apple School Manager",
