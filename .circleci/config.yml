@@ -39,7 +39,7 @@ jobs:
       - ruby-orbs/bundle-install:
           with_gemfile_lock: false
           gemspec_name: "apple_system_status"
-          cache_key_prefix: "v5-bundle"
+          cache_key_prefix: "v6-bundle"
           update_always: true
       - codeclimate/with-cc-test-reporter:
           after_build_args: "--coverage-input-type simplecov"
