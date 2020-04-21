@@ -1,7 +1,6 @@
 version: 2.1
 
 orbs:
-  ruby-orbs:   sue445/ruby-orbs@volatile
   codeclimate: sue445/codeclimate@volatile
 
 executors:
@@ -36,11 +35,8 @@ jobs:
       - run: gem --version
       - run: google-chrome --version
       - run: chromedriver --version
-      - ruby-orbs/bundle-install:
-          with_gemfile_lock: false
-          gemspec_name: "apple_system_status"
-          cache_key_prefix: "v7-bundle"
-          update_always: true
+      - run: bundle config --local path vendor/bundle
+      - run: bundle install --jobs=4 --retry=3
       - codeclimate/with-cc-test-reporter:
           after_build_args: "--coverage-input-type simplecov"
           steps:
