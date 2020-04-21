@@ -44,23 +44,15 @@ jobs:
 
 build_jobs: &build_jobs
   - rspec:
-      name:    "rspec:2.2"
-      version: "2.2"
-  - rspec:
-      name:    "rspec:2.3"
-      version: "2.3"
-  - rspec:
-      name:    "rspec:2.4"
-      version: "2.4"
-  - rspec:
-      name:    "rspec:2.5"
-      version: "2.5"
-  - rspec:
-      name:    "rspec:2.6"
-      version: "2.6"
-  - rspec:
-      name:    "rspec:2.7"
-      version: "2.7"
+      matrix:
+        parameters:
+          version:
+            - "2.2"
+            - "2.3"
+            - "2.4"
+            - "2.5"
+            - "2.6"
+            - "2.7"
 
 workflows:
   version: 2
