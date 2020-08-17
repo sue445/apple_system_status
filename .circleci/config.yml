@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   codeclimate: sue445/codeclimate@volatile
+  slack:       circleci/slack@volatile
 
 executors:
   ruby:
@@ -41,6 +42,7 @@ jobs:
           after_build_args: "--coverage-input-type simplecov"
           steps:
             - run: bundle exec rspec
+      - slack/status
 
 build_jobs: &build_jobs
   - rspec:
