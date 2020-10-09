@@ -42,7 +42,9 @@ jobs:
           after_build_args: "--coverage-input-type simplecov"
           steps:
             - run: bundle exec rspec
-      - slack/status
+      - slack/notify:
+          event: fail
+          template: basic_fail_1
 
 build_jobs: &build_jobs
   - rspec:
