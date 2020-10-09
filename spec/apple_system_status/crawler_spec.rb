@@ -13,7 +13,6 @@ describe AppleSystemStatus::Crawler do
           "Apple Books",
           "Apple ID",
           "Apple Music",
-          "Apple Music Subscriptions",
           "Apple Online Store",
           "Apple Pay",
           "Apple School Manager",
