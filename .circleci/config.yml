@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   codeclimate: sue445/codeclimate@volatile
-  slack:       circleci/slack@volatile
+  slack:       circleci/slack@3
 
 executors:
   ruby:
