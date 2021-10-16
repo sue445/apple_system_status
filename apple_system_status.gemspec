@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/sue445/apple_system_status"
   spec.license       = "MIT"
 
-  spec.required_ruby_version = ">= 2.5"
+  spec.required_ruby_version = ">= 2.6"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "capybara"
-  spec.add_dependency "selenium-webdriver", "< 4.0.0"
+  spec.add_dependency "selenium-webdriver", ">= 4.0.0"
   spec.add_dependency "thor"
 
   spec.add_development_dependency "bundler"
