@@ -9,7 +9,7 @@
 [![Coverage Status](https://coveralls.io/repos/sue445/apple_system_status/badge.svg?branch=master&service=github)](https://coveralls.io/github/sue445/apple_system_status?branch=master)
 
 ## Requirements
-* Ruby 2.2+
+* Ruby 2.6+
 * Headless Chrome
 
 ## Installation
