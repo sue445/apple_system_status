@@ -31,7 +31,7 @@ module AppleSystemStatus
         Capybara::Selenium::Driver.new(
           app,
           browser: :chrome,
-          desired_capabilities: capabilities,
+          capabilities: capabilities,
           http_client: client,
         )
       end
