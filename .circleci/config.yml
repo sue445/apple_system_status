@@ -1,8 +1,9 @@
 version: 2.1
 
 orbs:
-  codeclimate: sue445/codeclimate@volatile
-  slack:       circleci/slack@3
+  browser-tools: circleci/browser-tools@volatile
+  codeclimate:   sue445/codeclimate@volatile
+  slack:         circleci/slack@3
 
 executors:
   ruby:
@@ -10,7 +11,7 @@ executors:
       version:
         type: string
     docker:
-      - image: circleci/ruby:<< parameters.version >>-node-browsers
+      - image: cimg/ruby:<< parameters.version >>-browsers
     environment:
       # c.f. https://github.com/ffaker/ffaker/issues/277#issuecomment-263519146
       LANG:     en_US.UTF-8
@@ -31,6 +32,7 @@ jobs:
       name: ruby
       version: << parameters.version >>
     steps:
+      - browser-tools/install-browser-tools
       - checkout
       - run: bundle --version
       - run: gem --version
@@ -49,9 +51,6 @@ build_jobs: &build_jobs
       matrix:
         parameters:
           version:
-            - "2.2"
-            - "2.3"
-            - "2.4"
             - "2.5"
             - "2.6"
             - "2.7"
