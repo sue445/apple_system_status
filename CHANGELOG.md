@@ -1,5 +1,13 @@
 # Change Log
 
+## [v2.0.0](https://github.com/sue445/apple_system_status/tree/v2.0.0) (2021-10-16)
+[Full Changelog](https://github.com/sue445/apple_system_status/compare/v1.0.4...v2.0.0)
+
+* :bomb: **[BREAKING CHANGE]** Drop support ruby < 2.5
+  * https://github.com/sue445/apple_system_status/pull/65
+* Don't use selenium-webdriver v4
+  * https://github.com/sue445/apple_system_status/pull/63
+
 ## [v1.0.4](https://github.com/sue445/apple_system_status/tree/v1.0.4) (2019-06-19)
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v1.0.3...v1.0.4)
 
