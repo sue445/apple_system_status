@@ -2,8 +2,8 @@ version: 2.1
 
 orbs:
   browser-tools: circleci/browser-tools@volatile
-  codeclimate: sue445/codeclimate@volatile
-  slack:       circleci/slack@3
+  codeclimate:   sue445/codeclimate@volatile
+  slack:         circleci/slack@3
 
 executors:
   ruby:
