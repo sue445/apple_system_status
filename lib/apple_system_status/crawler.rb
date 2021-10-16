@@ -24,14 +24,14 @@ module AppleSystemStatus
 
         chrome_options = { args: chrome_options_args }
         chrome_options[:binary] = chrome_options_binary if chrome_options_binary
-        chrome_options[:w3c] = false # for chrome 75+
 
-        capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: chrome_options)
+        opts = Selenium::WebDriver::Chrome::Options.new(profile: nil, **chrome_options)
+        capabilities = Selenium::WebDriver::Remote::Capabilities.chrome
 
         Capybara::Selenium::Driver.new(
           app,
           browser: :chrome,
-          capabilities: capabilities,
+          capabilities: [capabilities, opts],
           http_client: client,
         )
       end
