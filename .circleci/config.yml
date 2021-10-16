@@ -1,6 +1,7 @@
 version: 2.1
 
 orbs:
+  browser-tools: circleci/browser-tools@volatile
   codeclimate: sue445/codeclimate@volatile
   slack:       circleci/slack@3
 
@@ -31,6 +32,7 @@ jobs:
       name: ruby
       version: << parameters.version >>
     steps:
+      - browser-tools/install-browser-tools
       - checkout
       - run: bundle --version
       - run: gem --version
