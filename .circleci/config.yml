@@ -10,7 +10,7 @@ executors:
       version:
         type: string
     docker:
-      - image: circleci/ruby:<< parameters.version >>-node-browsers
+      - image: cimg/ruby:<< parameters.version >>-browsers
     environment:
       # c.f. https://github.com/ffaker/ffaker/issues/277#issuecomment-263519146
       LANG:     en_US.UTF-8
