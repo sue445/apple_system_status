@@ -1,5 +1,11 @@
 # Change Log
 
+## [v3.0.1](https://github.com/sue445/apple_system_status/tree/v3.0.1) (2021-11-19)
+[Full Changelog](https://github.com/sue445/apple_system_status/compare/v3.0.0...v3.0.1)
+
+* Enable MFA requirement for gem releasing
+  * https://github.com/sue445/apple_system_status/pull/69
+
 ## [v3.0.0](https://github.com/sue445/apple_system_status/tree/v3.0.0) (2021-10-16)
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v2.0.0...v3.0.0)
 
