@@ -86,7 +86,6 @@ describe AppleSystemStatus::Crawler do
           "Game Center",
           "Mac App Store",
           "Mail Drop",
-          "Radio",
           "Siri",
           "Spotlightの検索候補",
           "Volume Purchase Program",
