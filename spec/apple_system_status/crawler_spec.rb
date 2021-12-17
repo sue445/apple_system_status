@@ -47,7 +47,6 @@ describe AppleSystemStatus::Crawler do
           "iOS Device Activation",
           "iTunes Match",
           "iTunes Store",
-          "iTunes U",
           "iWork for iCloud",
           "macOS Software Update",
         ]
