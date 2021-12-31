@@ -54,6 +54,7 @@ build_jobs: &build_jobs
             - "2.6"
             - "2.7"
             - "3.0"
+            - "3.1"
 
 workflows:
   version: 2
