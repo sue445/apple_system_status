@@ -1,5 +1,11 @@
 # Change Log
 
+## [v4.0.0](https://github.com/sue445/apple_system_status/tree/v4.0.0) (2023-12-28)
+[Full Changelog](https://github.com/sue445/apple_system_status/compare/v3.0.1...v4.0.0)
+
+* :bomb: **[BREAKING CHANGE]** Requires selenium-webdriver 4.11.0+ and Ruby 3.0+
+  * https://github.com/sue445/apple_system_status/pull/81
+
 ## [v3.0.1](https://github.com/sue445/apple_system_status/tree/v3.0.1) (2021-11-19)
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v3.0.0...v3.0.1)
 
