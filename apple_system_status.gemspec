@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.metadata["documentation_uri"] = "https://sue445.github.io/apple_system_status/"
   spec.metadata["rubygems_mfa_required"] = "true"
 
-  spec.required_ruby_version = ">= 2.6"
+  spec.required_ruby_version = ">= 3.0"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
