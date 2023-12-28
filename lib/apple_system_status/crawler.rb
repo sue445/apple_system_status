@@ -26,12 +26,11 @@ module AppleSystemStatus
         chrome_options[:binary] = chrome_options_binary if chrome_options_binary
 
         opts = Selenium::WebDriver::Chrome::Options.new(profile: nil, **chrome_options)
-        capabilities = Selenium::WebDriver::Remote::Capabilities.chrome
 
         Capybara::Selenium::Driver.new(
           app,
           browser: :chrome,
-          capabilities: [capabilities, opts],
+          options: opts,
           http_client: client,
         )
       end
