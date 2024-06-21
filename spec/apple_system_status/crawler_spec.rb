@@ -100,7 +100,6 @@ describe AppleSystemStatus::Crawler do
           "iOSデバイスアクティベーション",
           "iTunes Match",
           "iTunes Store",
-          "iTunes U",
           "iWork for iCloud",
           "macOSソフトウェアアップデート",
           "マップの検索",
