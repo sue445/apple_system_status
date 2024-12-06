@@ -11,7 +11,6 @@ describe AppleSystemStatus::Crawler do
         [
           "App Store",
           "Apple Books",
-          "Apple ID",
           "Apple Music",
           "Apple Online Store",
           "Apple School Manager",
@@ -75,7 +74,6 @@ describe AppleSystemStatus::Crawler do
         [
           "App Store",
           "Apple Books",
-          "Apple ID",
           "Apple Music",
           "Apple School Manager",
           "FaceTime",
