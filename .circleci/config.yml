@@ -2,7 +2,6 @@ version: 2.1
 
 orbs:
   browser-tools: circleci/browser-tools@volatile
-  codeclimate:   sue445/codeclimate@volatile
   slack:         circleci/slack@3
 
 executors:
@@ -40,10 +39,7 @@ jobs:
       - run: chromedriver --version
       - run: bundle config --local path vendor/bundle
       - run: bundle install --jobs=4 --retry=3
-      - codeclimate/with-cc-test-reporter:
-          after_build_args: "--coverage-input-type simplecov"
-          steps:
-            - run: bundle exec rspec
+      - run: bundle exec rspec
       - slack/notify-on-failure
 
 build_jobs: &build_jobs
