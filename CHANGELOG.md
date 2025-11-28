@@ -1,7 +1,7 @@
 # Change Log
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v4.0.1...master)
 
-## [v4.0.1](https://github.com/sue445/apple_system_status/tree/v4.0.1) (2025-11-28)
+## [v4.0.1](https://github.com/sue445/apple_system_status/releases/tag/v4.0.1) (2025-11-28)
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v4.0.0...v4.0.1)
 
 * Release gem from GitHub Actions
