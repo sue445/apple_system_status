@@ -1,5 +1,11 @@
 # Change Log
-[Full Changelog](https://github.com/sue445/apple_system_status/compare/v4.0.0...master)
+[Full Changelog](https://github.com/sue445/apple_system_status/compare/v4.0.1...master)
+
+## [v4.0.1](https://github.com/sue445/apple_system_status/tree/v4.0.1) (2025-11-28)
+[Full Changelog](https://github.com/sue445/apple_system_status/compare/v4.0.0...v4.0.1)
+
+* Release gem from GitHub Actions
+  * https://github.com/sue445/apple_system_status/pull/93
 
 ## [v4.0.0](https://github.com/sue445/apple_system_status/tree/v4.0.0) (2023-12-28)
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v3.0.1...v4.0.0)
