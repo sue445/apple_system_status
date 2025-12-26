@@ -40,6 +40,8 @@ jobs:
       - run: bundle config --local path vendor/bundle
       - run: bundle install --jobs=4 --retry=3
       - run: bundle exec rspec
+      - run: bundle exec yard
+      - run: ls -ld doc/
       - slack/notify-on-failure
 
 build_jobs: &build_jobs
