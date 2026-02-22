@@ -31,7 +31,8 @@ jobs:
       name: ruby
       version: << parameters.version >>
     steps:
-      - browser-tools/install_browser_tools
+      - browser-tools/install_browser_tools:
+          install_firefox: false
       - checkout
       - run: bundle --version
       - run: gem --version
