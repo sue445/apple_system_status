@@ -1,5 +1,11 @@
 # Change Log
-[Full Changelog](https://github.com/sue445/apple_system_status/compare/v4.0.1...master)
+[Full Changelog](https://github.com/sue445/apple_system_status/compare/v4.0.2...master)
+
+## [v4.0.1](https://github.com/sue445/apple_system_status/releases/tag/v4.0.2) (2026-08-23)
+[Full Changelog](https://github.com/sue445/apple_system_status/compare/v4.0.1...v4.0.2)
+
+* Migrate release_gem workflow to sue445/workflows (Also testing the gem release)
+  * https://github.com/sue445/apple_system_status/pull/129
 
 ## [v4.0.1](https://github.com/sue445/apple_system_status/releases/tag/v4.0.1) (2025-11-28)
 [Full Changelog](https://github.com/sue445/apple_system_status/compare/v4.0.0...v4.0.1)
