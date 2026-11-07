@@ -6,3 +6,4 @@ workflows:
     '.github/workflows/dependabot-manager.yml': []
     '.github/workflows/pages.yml': []
     '.github/workflows/release_gem.yml': []
+    '.github/workflows/verify-actions-lockfile.yml': []
